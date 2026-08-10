@@ -1,0 +1,41 @@
+=============================================================================
+[YOUR NAME] | [YOUR ROLE]
+[YOUR LOCATION] | [YOUR EMAIL] | [YOUR PHONE]
+GitHub: [YOUR GITHUB URL] | LinkedIn: [YOUR LINKEDIN URL]
+=============================================================================
+
+PROFESSIONAL SUMMARY
+-----------------------------------------------------------------------------
+[YOUR SUMMARY - Describe your background, key strengths, technical skills,
+and goals as a developer.]
+
+TECHNICAL SKILLS
+-----------------------------------------------------------------------------
+* Programming Languages: [YOUR LANGUAGES - e.g., HTML5, CSS3, JavaScript]
+* Frameworks & Libraries: [YOUR FRAMEWORKS / LIBRARIES]
+* Tools & Platforms: [YOUR TOOLS - e.g., Git, GitHub, VS Code]
+* Concepts: [YOUR CONCEPTS - e.g., Responsive Web Design, UI/UX]
+
+WORK / INTERNSHIP EXPERIENCE
+-----------------------------------------------------------------------------
+Frontend Development Intern | CodSoft
+2026 - Present
+* [DESCRIPTION OF YOUR TASKS AND RESPONSIBILITIES AT CODSOFT]
+
+[YOUR PREVIOUS POSITION / ROLE] | [ORGANIZATION / COMPANY]
+[START DATE] - [END DATE]
+* [DESCRIPTION OF RESPONSIBILITIES AND ACHIEVEMENTS]
+
+EDUCATION & CERTIFICATIONS
+-----------------------------------------------------------------------------
+* [YOUR DEGREE] | [YOUR UNIVERSITY] ([YEAR - YEAR])
+  Relevant Coursework: [YOUR RELEVANT COURSEWORK]
+
+* [YOUR CERTIFICATION] | [ISSUING ORGANIZATION] ([YEAR])
+
+KEY PROJECTS
+-----------------------------------------------------------------------------
+1. [YOUR PROJECT 1]: [Brief description of what you built and tech stack used]
+2. [YOUR PROJECT 2]: [Brief description of what you built and tech stack used]
+3. [YOUR PROJECT 3]: [Brief description of what you built and tech stack used]
+=============================================================================

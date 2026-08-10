@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anisha P Rao - Software Developer Portfolio. Showcasing web applications, interactive interfaces, skills, and projects.">
+    <meta name="author" content="Anisha P Rao">
+    <title>Anisha P Rao | Software Developer Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Ambient Glow Layer -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-icon"><i class="fa-solid fa-code"></i></span>
+                <span class="logo-text">Anisha<span class="highlight">.dev</span></span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Nav Controls -->
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+                <a href="assets/Anisha_P_Rao_Resume.pdf" download="Anisha_P_Rao_Resume.pdf" class="btn btn-outline btn-sm nav-cv-btn">
+                    <i class="fa-solid fa-download"></i> CV
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge-pill">
+                        <span class="status-dot"></span> Available for New Opportunities
+                    </div>
+                    <h1 class="hero-title">
+                        Building Digital Experiences That <span class="gradient-text">Inspire & Solve Problems</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Hi, I'm <strong class="text-glow">Anisha P Rao</strong>. A passionate Software Developer crafting sleek, responsive web applications and software systems using Java, HTML, CSS, JavaScript, Python, and SQL.
+                    </p>
+                    
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>Explore My Work</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-glass">
+                            <span>Get In Touch</span> <i class="fa-regular fa-envelope"></i>
+                        </a>
+                        <a href="assets/Anisha_P_Rao_Resume.pdf" download="Anisha_P_Rao_Resume.pdf" class="btn btn-outline" id="hero-download-cv">
+                            <i class="fa-solid fa-file-arrow-down"></i> <span>Download Resume</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats Grid -->
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <h3 class="stat-number" data-target="0">[NUMBER]</h3>
+                            <p class="stat-label">Projects Completed</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="stat-number" data-target="0">[NUMBER]</h3>
+                            <p class="stat-label">Technologies</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="stat-number" data-target="0">[NUMBER]</h3>
+                            <p class="stat-label">Years Learning</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="image-wrapper">
+                        <div class="image-border-glow"></div>
+                        <div class="profile-card">
+                            <div class="profile-avatar-box">
+                                <img src="assets/hero_avatar.svg" alt="Anisha P Rao" class="hero-avatar">
+                            </div>
+                            <div class="profile-card-info">
+                                <h2 class="profile-name">ANISHA P RAO</h2>
+                                <p class="profile-title">Software Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section section-padding" id="about">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-title">Driven by Creativity & Clean Code</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card main-bio">
+                        <div class="card-icon"><i class="fa-solid fa-user-gear"></i></div>
+                        <h3>Who I Am</h3>
+                        <p>
+                            I am a Software Developer pursuing my Bachelor of Engineering (BE) degree at Vidyavardhaka College of Engineering, Mysuru. I have a solid foundation in computer science, software engineering principles, database management, and web technologies.
+                        </p>
+                        <p>
+                            My approach combines clean code architecture with accessible, responsive user interface design. Whether building database-driven analytics systems or interactive web platforms, I focus on delivering reliable and efficient solutions.
+                        </p>
+
+                        <div class="bio-details">
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-location-dot"></i> Location:</span>
+                                <span class="detail-value">Mysuru, India</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-graduation-cap"></i> Degree:</span>
+                                <span class="detail-value">BE (Vidyavardhaka College of Engineering)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-briefcase"></i> Status:</span>
+                                <span class="detail-value">Open for Opportunities</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                            <h4>Responsive First</h4>
+                            <p>Flawless layouts optimized for smartphones, tablets, and desktop displays.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <h4>High Performance</h4>
+                            <p>Fast loading speeds, lightweight code, and smooth micro-animations.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
+                            <h4>Clean Architecture</h4>
+                            <p>Maintainable, scalable, and modular HTML, CSS, and JavaScript standards.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-database"></i></div>
+                            <h4>Database Management</h4>
+                            <p>Structured data handling and query management using SQL & MySQL.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section section-padding" id="skills">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">My Expertise</span>
+                    <h2 class="section-title">Technical Skills & Proficiency</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="skills-container">
+                    <!-- Progress Bar Skills -->
+                    <div class="skills-column">
+                        <h3 class="column-title"><i class="fa-solid fa-layer-group"></i> Core Technical Skills</h3>
+                        
+                        <div class="skill-progress-item">
+                            <div class="skill-info">
+                                <span><i class="fa-brands fa-java skill-icon react-color"></i> Java & OOP Concepts</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" data-progress="90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-progress-item">
+                            <div class="skill-info">
+                                <span><i class="fa-brands fa-html5 skill-icon html-color"></i> HTML5 & CSS3</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" data-progress="92%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-progress-item">
+                            <div class="skill-info">
+                                <span><i class="fa-brands fa-square-js skill-icon js-color"></i> JavaScript (ES6+)</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" data-progress="88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-progress-item">
+                            <div class="skill-info">
+                                <span><i class="fa-brands fa-python skill-icon css-color"></i> Python</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" data-progress="85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-progress-item">
+                            <div class="skill-info">
+                                <span><i class="fa-solid fa-database skill-icon git-color"></i> SQL & Database Management</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" data-progress="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Workflow Grid -->
+                    <div class="skills-column">
+                        <h3 class="column-title"><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Development</h3>
+                        
+                        <div class="tools-grid">
+                            <div class="tool-card">
+                                <i class="fa-brands fa-git-alt tool-icon"></i>
+                                <span>Git & GitHub</span>
+                            </div>
+                            <div class="tool-card">
+                                <i class="fa-solid fa-laptop-code tool-icon"></i>
+                                <span>VS Code</span>
+                            </div>
+                            <div class="tool-card">
+                                <i class="fa-solid fa-database tool-icon"></i>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="tool-card">
+                                <i class="fa-brands fa-python tool-icon"></i>
+                                <span>Python Tools</span>
+                            </div>
+                            <div class="tool-card">
+                                <i class="fa-solid fa-code tool-icon"></i>
+                                <span>C / C++ Basics</span>
+                            </div>
+                            <div class="tool-card">
+                                <i class="fa-solid fa-gauge-high tool-icon"></i>
+                                <span>Web Dev Tools</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-summary-box">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <p>Constantly exploring modern web standards, software architecture patterns, and responsive user interfaces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section section-padding" id="projects">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Portfolio Showcase</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="webapp">Web Apps</button>
+                    <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend Tools</button>
+                </div>
+
+                <!-- Projects Cards Grid -->
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <article class="project-card" data-category="webapp">
+                        <div class="project-image-box">
+                            <img src="assets/project_1.svg" alt="Student Performance Analytics System" class="project-img">
+                            <div class="project-overlay">
+                                <button class="btn btn-light btn-sm view-details-btn" data-project="1">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">SQL</span>
+                                <span class="tag">HTML/CSS</span>
+                            </div>
+                            <h3 class="project-title">Student Performance Analytics System</h3>
+                            <p class="project-description">
+                                A data-driven web system designed to track, analyze, and visualize student academic metrics, grades, and progress reports.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/AnishaPRao" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <i class="fa-brands fa-github"></i> Code
+                                </a>
+                                <a href="#projects" class="project-link demo-link view-details-btn" data-project="1" aria-label="Live Demo Details">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo & Details
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 2 -->
+                    <article class="project-card" data-category="uiux">
+                        <div class="project-image-box">
+                            <img src="assets/project_2.svg" alt="Online Quiz Platform" class="project-img">
+                            <div class="project-overlay">
+                                <button class="btn btn-light btn-sm view-details-btn" data-project="2">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">SQL</span>
+                            </div>
+                            <h3 class="project-title">Online Quiz Platform</h3>
+                            <p class="project-description">
+                                An interactive web portal enabling users to take timed quizzes, receive real-time score evaluations, and review test feedback.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/AnishaPRao" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <i class="fa-brands fa-github"></i> Code
+                                </a>
+                                <a href="#projects" class="project-link demo-link view-details-btn" data-project="2" aria-label="Live Demo Details">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo & Details
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 3 -->
+                    <article class="project-card" data-category="frontend">
+                        <div class="project-image-box">
+                            <img src="assets/project_3.svg" alt="CodSoft Internship Web Projects" class="project-img">
+                            <div class="project-overlay">
+                                <button class="btn btn-light btn-sm view-details-btn" data-project="3">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Responsive</span>
+                            </div>
+                            <h3 class="project-title">CodSoft Internship Tasks</h3>
+                            <p class="project-description">
+                                A suite of modern, responsive web applications built for the CodSoft Frontend Development Internship.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/AnishaPRao" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <i class="fa-brands fa-github"></i> Code
+                                </a>
+                                <a href="#projects" class="project-link demo-link view-details-btn" data-project="3" aria-label="Live Demo Details">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo & Details
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section class="resume-section section-padding" id="resume">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Career & Education</span>
+                    <h2 class="section-title">Resume & Experience Timeline</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="resume-download-banner">
+                    <div class="banner-info">
+                        <h3>Looking for a Full Copy of My Resume?</h3>
+                        <p>Download my formatted CV detailing experience, technical stack, and education history.</p>
+                    </div>
+                    <a href="assets/Anisha_P_Rao_Resume.pdf" download="Anisha_P_Rao_Resume.pdf" class="btn btn-primary btn-lg" id="resume-section-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download Resume / CV
+                    </a>
+                </div>
+
+                <div class="timeline-container">
+                    <!-- Experience Timeline -->
+                    <div class="timeline-column">
+                        <h3 class="timeline-heading"><i class="fa-solid fa-briefcase"></i> Work Experience</h3>
+                        
+                        <div class="timeline-card">
+                            <div class="timeline-badge"><i class="fa-solid fa-code"></i></div>
+                            <div class="timeline-header">
+                                <h4>Frontend Development Intern</h4>
+                                <span class="timeline-date">CodSoft Internship | 2026 - Present</span>
+                            </div>
+                            <p class="timeline-company">CodSoft</p>
+                            <p class="timeline-body">
+                                Developing responsive, high-performance web applications utilizing clean HTML5, CSS3 animations, and ES6 JavaScript. Building interactive components and portfolio tasks.
+                            </p>
+                        </div>
+
+                        <div class="timeline-card">
+                            <div class="timeline-badge"><i class="fa-solid fa-laptop-code"></i></div>
+                            <div class="timeline-header">
+                                <h4>C & C++ Programming Certification</h4>
+                                <span class="timeline-date">Course Completion</span>
+                            </div>
+                            <p class="timeline-company">Programming Foundations</p>
+                            <p class="timeline-body">
+                                Completed certified training in C and C++ programming languages, developing strong problem-solving skills and foundational knowledge in data structures and logic.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Education Timeline -->
+                    <div class="timeline-column">
+                        <h3 class="timeline-heading"><i class="fa-solid fa-graduation-cap"></i> Education & Certifications</h3>
+                        
+                        <div class="timeline-card">
+                            <div class="timeline-badge"><i class="fa-solid fa-certificate"></i></div>
+                            <div class="timeline-header">
+                                <h4>BE (Bachelor of Engineering)</h4>
+                                <span class="timeline-date">Vidyavardhaka College of Engineering | Mysuru</span>
+                            </div>
+                            <p class="timeline-company">School of Engineering</p>
+                            <p class="timeline-body">
+                                Focused on Software Engineering, Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, and Web Technologies.
+                            </p>
+                        </div>
+
+                        <div class="timeline-card">
+                            <div class="timeline-badge"><i class="fa-solid fa-award"></i></div>
+                            <div class="timeline-header">
+                                <h4>Hackathon & Course Certificates</h4>
+                                <span class="timeline-date">Certifications</span>
+                            </div>
+                            <p class="timeline-company">Certifications & Competitions</p>
+                            <p class="timeline-body">
+                                Earned C & C++ Course Completion Certificates and participated in technical Hackathons, applying software development skills to real-world challenges.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section section-padding" id="contact">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Let's Connect & Build Together</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Info Cards -->
+                    <div class="contact-info-col">
+                        <div class="info-card">
+                            <div class="info-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                            <div class="info-text">
+                                <h4>Email Me</h4>
+                                <a href="mailto:ar@gmail.com">ar@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="info-text">
+                                <h4>Phone Number</h4>
+                                <a href="tel:9253647836">9253647836</a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-text">
+                                <h4>Location</h4>
+                                <p>Mysuru, Karnataka, India</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Links -->
+                        <div class="social-links-box">
+                            <h4>Follow My Work</h4>
+                            <div class="social-icons">
+                                <a href="https://github.com/AnishaPRao" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/anisha-p-rao-192581333?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form with Validation -->
+                    <div class="contact-form-col">
+                        <form class="contact-form" id="contact-form" novalidate>
+                            <h3 class="form-title">Send a Message</h3>
+                            
+                            <div class="form-group">
+                                <label for="user-name">Your Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-user input-icon"></i>
+                                    <input type="text" id="user-name" name="name" placeholder="Your Name" required>
+                                </div>
+                                <span class="error-msg" id="name-error">Please enter your full name (minimum 2 characters).</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="user-email">Email Address <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-envelope input-icon"></i>
+                                    <input type="email" id="user-email" name="email" placeholder="your.email@example.com" required>
+                                </div>
+                                <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="user-subject">Subject</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-tag input-icon"></i>
+                                    <input type="text" id="user-subject" name="subject" placeholder="Project Inquiry / Opportunity">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="user-message">Message <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-comment-dots input-icon textarea-icon"></i>
+                                    <textarea id="user-message" name="message" rows="5" placeholder="Hi Anisha, I'd like to discuss an opportunity..." required></textarea>
+                                </div>
+                                <span class="error-msg" id="message-error">Please enter a message (minimum 10 characters).</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                                <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="nav-logo">
+                    <span class="logo-icon"><i class="fa-solid fa-code"></i></span>
+                    <span class="logo-text">Anisha<span class="highlight">.dev</span></span>
+                </a>
+                <p>Crafting high-quality, responsive web interfaces and software applications.</p>
+            </div>
+
+            <div class="footer-copy">
+                <p>&copy; 2026 Anisha P Rao. Built for CodSoft Frontend Internship Task 1.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to Top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Interactive Project Modal -->
+    <div class="modal-backdrop" id="project-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <button class="modal-close" id="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-body" id="modal-body">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

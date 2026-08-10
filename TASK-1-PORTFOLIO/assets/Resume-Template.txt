@@ -1,0 +1,49 @@
+=============================================================================
+ANISHA P RAO | SOFTWARE DEVELOPER
+Mysuru | ar@gmail.com | 9253647836
+GitHub: https://github.com/AnishaPRao
+LinkedIn: https://www.linkedin.com/in/anisha-p-rao-192581333
+=============================================================================
+
+PROFESSIONAL SUMMARY
+-----------------------------------------------------------------------------
+Motivated and detail-oriented Software Developer with a Bachelor of Engineering
+(BE) background from Vidyavardhaka College of Engineering, Mysuru. Proficient
+in Java, Python, HTML, CSS, JavaScript, and SQL database management. Experienced
+in crafting responsive web applications, analytical systems, and interactive tools.
+
+TECHNICAL SKILLS
+-----------------------------------------------------------------------------
+* Programming Languages: Java, Python, JavaScript (ES6+), C, C++
+* Web Development: HTML5, CSS3, Flexbox, CSS Grid, Responsive Design
+* Databases & Tools: SQL, MySQL, Git, GitHub, VS Code
+
+WORK / INTERNSHIP EXPERIENCE
+-----------------------------------------------------------------------------
+Frontend Development Intern | CodSoft
+2026 - Present
+* Developing responsive, high-performance web applications using HTML5, CSS3, and ES6 JS.
+* Implemented portfolio websites, interactive user components, form validation, and themes.
+
+EDUCATION & QUALIFICATIONS
+-----------------------------------------------------------------------------
+* BE (Bachelor of Engineering) | Vidyavardhaka College of Engineering, Mysuru
+  Coursework: Software Engineering, Data Structures, OOP, DBMS, Web Development
+
+CERTIFICATIONS & ACHIEVEMENTS
+-----------------------------------------------------------------------------
+* C & C++ Course Completion Certificate
+* Hackathon Participation Certificate
+
+KEY PROJECTS
+-----------------------------------------------------------------------------
+1. Student Performance Analytics System:
+   A comprehensive system built to track, analyze, and visualize student academic
+   performance metrics, grades, and progress indicators.
+   Tech Stack: Java, Python, SQL, HTML/CSS.
+
+2. Online Quiz Platform:
+   A web-based interactive examination portal enabling users to take timed quizzes,
+   get instant score reports, and review performance answers.
+   Tech Stack: HTML5, CSS3, JavaScript, SQL.
+=============================================================================
