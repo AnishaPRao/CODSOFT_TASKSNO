@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaskFlow - Modern, Responsive To-Do List Application built for CodSoft Internship Task 2.">
+    <title>TaskFlow | To-Do List Application</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Ambient Glow Layer -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="app-container">
+        <!-- Application Header -->
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="logo-icon"><i class="fa-solid fa-list-check"></i></div>
+                <div>
+                    <h1 class="app-title">Task<span class="highlight">Flow</span></h1>
+                    <p class="app-subtitle">Organize your work, boost productivity & achieve goals</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="date-badge" id="current-date-badge">
+                    <i class="fa-regular fa-calendar-days"></i> <span id="current-date">Today</span>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Summary Statistics Cards -->
+        <section class="stats-section" aria-label="Task Summary Statistics">
+            <div class="stat-card stat-total">
+                <div class="stat-icon-box"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="stat-info">
+                    <h3 class="stat-value" id="stat-total">0</h3>
+                    <p class="stat-label">Total Tasks</p>
+                </div>
+            </div>
+
+            <div class="stat-card stat-pending">
+                <div class="stat-icon-box"><i class="fa-solid fa-clock"></i></div>
+                <div class="stat-info">
+                    <h3 class="stat-value" id="stat-pending">0</h3>
+                    <p class="stat-label">Pending Tasks</p>
+                </div>
+            </div>
+
+            <div class="stat-card stat-completed">
+                <div class="stat-icon-box"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="stat-info">
+                    <h3 class="stat-value" id="stat-completed">0</h3>
+                    <p class="stat-label">Completed Tasks</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task Form Card (Add New Task) -->
+        <section class="card form-card">
+            <div class="card-header">
+                <h2><i class="fa-solid fa-plus-circle"></i> Add New Task</h2>
+            </div>
+            
+            <form id="add-task-form" novalidate>
+                <div class="form-grid">
+                    <!-- Task Title Input -->
+                    <div class="form-group full-width">
+                        <label for="task-title">Task Title <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-pen input-icon"></i>
+                            <input type="text" id="task-title" placeholder="What needs to be done?" required autocomplete="off">
+                        </div>
+                        <span class="error-msg" id="title-error">Task title cannot be empty!</span>
+                    </div>
+
+                    <!-- Category Selector -->
+                    <div class="form-group">
+                        <label for="task-category">Category</label>
+                        <div class="select-wrapper">
+                            <i class="fa-solid fa-folder input-icon"></i>
+                            <select id="task-category">
+                                <option value="Work">Work</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Study">Study</option>
+                                <option value="Health">Health</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Priority Selector -->
+                    <div class="form-group">
+                        <label for="task-priority">Priority</label>
+                        <div class="select-wrapper">
+                            <i class="fa-solid fa-flag input-icon"></i>
+                            <select id="task-priority">
+                                <option value="Medium">Medium Priority</option>
+                                <option value="High">High Priority</option>
+                                <option value="Low">Low Priority</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Due Date Picker -->
+                    <div class="form-group">
+                        <label for="task-due-date">Due Date</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-calendar input-icon"></i>
+                            <input type="date" id="task-due-date">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary" id="add-task-btn">
+                        <i class="fa-solid fa-plus"></i> <span>Add Task</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Controls Bar: Search & Filters -->
+        <section class="controls-section">
+            <!-- Search Bar -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search tasks by title..." aria-label="Search Tasks">
+                <button type="button" class="clear-search-btn" id="clear-search" aria-label="Clear Search">&times;</button>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-group">
+                <!-- Status Filter Tabs -->
+                <div class="status-tabs" role="tablist">
+                    <button class="tab-btn active" data-filter-status="all" role="tab">All</button>
+                    <button class="tab-btn" data-filter-status="pending" role="tab">Pending</button>
+                    <button class="tab-btn" data-filter-status="completed" role="tab">Completed</button>
+                </div>
+
+                <!-- Secondary Filters Dropdowns -->
+                <div class="dropdown-filters">
+                    <div class="select-wrapper select-sm">
+                        <select id="filter-category" aria-label="Filter by Category">
+                            <option value="all">All Categories</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Study">Study</option>
+                            <option value="Health">Health</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="select-wrapper select-sm">
+                        <select id="filter-priority" aria-label="Filter by Priority">
+                            <option value="all">All Priorities</option>
+                            <option value="High">High Priority</option>
+                            <option value="Medium">Medium Priority</option>
+                            <option value="Low">Low Priority</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task List Section -->
+        <section class="task-list-section">
+            <div class="list-header">
+                <h3 class="list-title" id="list-heading">My Tasks</h3>
+                <button class="btn btn-danger btn-sm" id="clear-completed-btn">
+                    <i class="fa-solid fa-trash-can"></i> Clear Completed
+                </button>
+            </div>
+
+            <!-- Dynamic Task List Container -->
+            <ul class="task-list" id="task-list">
+                <!-- Injected via JavaScript -->
+            </ul>
+
+            <!-- Empty State Container -->
+            <div class="empty-state hidden" id="empty-state">
+                <div class="empty-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                <h3 id="empty-title">No tasks found</h3>
+                <p id="empty-description">Create a new task above to get started!</p>
+            </div>
+        </section>
+
+        <!-- Application Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 TaskFlow. CodSoft Frontend Development Internship Task 2.</p>
+        </footer>
+    </div>
+
+    <!-- Edit Task Modal Dialog -->
+    <div class="modal-backdrop" id="edit-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-pen-to-square"></i> Edit Task</h3>
+                <button type="button" class="modal-close" id="edit-modal-close" aria-label="Close Modal">&times;</button>
+            </div>
+            <form id="edit-task-form" novalidate>
+                <input type="hidden" id="edit-task-id">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="edit-title">Task Title <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-pen input-icon"></i>
+                            <input type="text" id="edit-title" required autocomplete="off">
+                        </div>
+                        <span class="error-msg" id="edit-title-error">Task title cannot be empty!</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-category">Category</label>
+                        <div class="select-wrapper">
+                            <i class="fa-solid fa-folder input-icon"></i>
+                            <select id="edit-category">
+                                <option value="Work">Work</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Study">Study</option>
+                                <option value="Health">Health</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-priority">Priority</label>
+                        <div class="select-wrapper">
+                            <i class="fa-solid fa-flag input-icon"></i>
+                            <select id="edit-priority">
+                                <option value="High">High Priority</option>
+                                <option value="Medium">Medium Priority</option>
+                                <option value="Low">Low Priority</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-due-date">Due Date</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-calendar input-icon"></i>
+                            <input type="date" id="edit-due-date">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="edit-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
