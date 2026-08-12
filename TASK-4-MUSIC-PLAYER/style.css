@@ -1,0 +1,805 @@
+/* ==========================================================================
+   MELODYSTREAM MUSIC PLAYER - DESIGN SYSTEM & STYLESHEET
+   CodSoft Task 4 | Frontend Internship Submission
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties / Theme Variables
+   -------------------------------------------------------------------------- */
+:root {
+    /* Fonts */
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Dark Theme Colors (Default) */
+    --bg-primary: #0b0f19;
+    --bg-secondary: #111827;
+    --bg-card: rgba(17, 24, 39, 0.78);
+    --bg-card-hover: rgba(31, 41, 55, 0.88);
+    --bg-glass: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-glow: rgba(99, 102, 241, 0.35);
+
+    /* Brand Accent Colors */
+    --primary: #6366f1;         /* Indigo */
+    --primary-hover: #4f46e5;
+    --secondary: #06b6d4;       /* Cyan */
+    --pink: #ec4899;            /* Neon Pink */
+    --gradient-brand: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    --gradient-active: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+
+    /* Text Colors */
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
+
+    /* Shadows & Radii */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 12px 30px -5px rgba(0, 0, 0, 0.45);
+    --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.35);
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.88);
+    --bg-card-hover: rgba(241, 245, 249, 0.95);
+    --bg-glass: rgba(0, 0, 0, 0.03);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-glow: rgba(99, 102, 241, 0.25);
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Layout
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 20px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+}
+
+/* Ambient Glow Layer */
+.ambient-glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.18;
+}
+
+.glow-1 {
+    top: -100px;
+    left: -100px;
+    background: var(--primary);
+}
+
+.glow-2 {
+    bottom: -100px;
+    right: -100px;
+    background: var(--pink);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header Section
+   -------------------------------------------------------------------------- */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    background: var(--gradient-brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.35);
+    animation: pulseLogo 3s ease-in-out infinite;
+}
+
+@keyframes pulseLogo {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.app-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.app-title .highlight {
+    color: var(--pink);
+}
+
+.app-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.theme-toggle {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: rotate(15deg);
+}
+
+.sun-icon { display: none; }
+[data-theme="light"] .moon-icon { display: none; }
+[data-theme="light"] .sun-icon { display: block; color: #f59e0b; }
+
+/* --------------------------------------------------------------------------
+   4. Player Grid & Cards
+   -------------------------------------------------------------------------- */
+.player-grid {
+    display: grid;
+    grid-template-columns: 440px 1fr;
+    gap: 30px;
+}
+
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+}
+
+/* --------------------------------------------------------------------------
+   5. Player Card Components (Album Art, Vinyl, Track Meta)
+   -------------------------------------------------------------------------- */
+.player-card {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.album-art-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.album-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.player-card.playing .album-img {
+    transform: scale(1.02);
+}
+
+/* Equalizer Wave Overlay */
+.equalizer-overlay {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(8px);
+    padding: 8px 12px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 28px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.player-card.playing .equalizer-overlay {
+    opacity: 1;
+}
+
+.eq-bar {
+    width: 4px;
+    background: var(--pink);
+    border-radius: 4px;
+}
+
+.player-card.playing .bar-1 { animation: eqBounce 1s ease-in-out infinite alternate; }
+.player-card.playing .bar-2 { animation: eqBounce 1.2s ease-in-out infinite alternate 0.2s; }
+.player-card.playing .bar-3 { animation: eqBounce 0.8s ease-in-out infinite alternate 0.4s; }
+.player-card.playing .bar-4 { animation: eqBounce 1.4s ease-in-out infinite alternate 0.1s; }
+
+@keyframes eqBounce {
+    0% { height: 4px; }
+    100% { height: 18px; }
+}
+
+/* Track Metadata Header */
+.track-meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.track-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.track-artist {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.track-album-badge {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.fav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 4px;
+}
+
+.fav-btn:hover {
+    color: var(--pink);
+    transform: scale(1.15);
+}
+
+.fav-btn.active {
+    color: var(--pink);
+}
+
+.fav-btn.active i {
+    font-weight: 900;
+}
+
+/* --------------------------------------------------------------------------
+   6. Progress Seek Bar & Controls Deck
+   -------------------------------------------------------------------------- */
+.progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.time-stamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.seek-container, .volume-seek-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--pink);
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+}
+
+.progress-fill, .volume-fill {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-brand);
+    pointer-events: none;
+    z-index: 1;
+    width: 0%;
+}
+
+/* Controls Deck */
+.controls-deck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.control-btn {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.control-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.mode-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+}
+
+.mode-btn.active {
+    color: var(--pink);
+    border-color: var(--pink);
+    background: rgba(236, 72, 153, 0.15);
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+}
+
+.nav-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+}
+
+.play-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gradient-brand);
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+}
+
+.play-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+}
+
+.pause-icon { display: none; }
+.player-card.playing .play-icon { display: none; }
+.player-card.playing .pause-icon { display: block; }
+
+/* Volume Deck */
+.volume-deck {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.volume-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.volume-btn:hover {
+    color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   7. Playlist Panel & Track Items
+   -------------------------------------------------------------------------- */
+.playlist-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.playlist-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.playlist-title-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.playlist-title-box h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+}
+
+.playlist-title-box h3 i {
+    color: var(--primary);
+}
+
+.track-count-badge {
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.playlist-filter-tabs {
+    display: flex;
+    gap: 6px;
+    background: var(--bg-primary);
+    padding: 4px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.filter-tab {
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-tab.active {
+    background: var(--gradient-brand);
+    color: #ffffff;
+}
+
+.playlist-tracks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    max-height: 520px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.playlist-tracks::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlist-tracks::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius-full);
+}
+
+.playlist-item {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.playlist-item:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-glow);
+    transform: translateX(4px);
+}
+
+.playlist-item.active {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.track-index {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    width: 20px;
+    text-align: center;
+}
+
+.playlist-item.active .track-index {
+    color: var(--primary);
+}
+
+.thumb-img {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.item-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.playlist-item.active .item-title {
+    color: var(--primary);
+}
+
+.item-artist {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.item-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.item-duration {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.item-fav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.item-fav-btn:hover, .item-fav-btn.active {
+    color: var(--pink);
+}
+
+/* Playing Equalizer Indicator in Playlist */
+.playing-eq-icon {
+    display: none;
+    gap: 2px;
+    align-items: flex-end;
+    height: 14px;
+}
+
+.playlist-item.active.playing .playing-eq-icon {
+    display: flex;
+}
+
+.playlist-item.active.playing .track-index {
+    display: none;
+}
+
+.playing-eq-icon span {
+    width: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    animation: eqBounce 1s ease-in-out infinite alternate;
+}
+
+.playing-eq-icon span:nth-child(1) { animation-delay: 0s; }
+.playing-eq-icon span:nth-child(2) { animation-delay: 0.2s; }
+.playing-eq-icon span:nth-child(3) { animation-delay: 0.4s; }
+
+/* --------------------------------------------------------------------------
+   8. Toast Notifications & Footer
+   -------------------------------------------------------------------------- */
+.toast-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 3000;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-md);
+    animation: toastIn 0.3s ease forwards;
+    min-width: 260px;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.toast.info { border-left: 4px solid var(--primary); }
+.toast-icon { color: var(--primary); font-size: 1.1rem; }
+
+.app-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --------------------------------------------------------------------------
+   9. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+    .player-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cover-wrapper {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .controls-deck {
+        gap: 8px;
+    }
+
+    .nav-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .play-btn {
+        width: 56px;
+        height: 56px;
+    }
+}

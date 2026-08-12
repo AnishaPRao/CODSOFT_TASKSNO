@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MelodyStream - Modern Web-based Music Player built for CodSoft Frontend Internship Task 4.">
+    <title>MelodyStream | Modern Music Player</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Ambient Glow Layer -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="app-container">
+        <!-- Application Header -->
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="logo-icon"><i class="fa-solid fa-compact-disc"></i></div>
+                <div>
+                    <h1 class="app-title">Melody<span class="highlight">Stream</span></h1>
+                    <p class="app-subtitle">Modern Web Audio Player & Music Dashboard</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Player Grid (Player Card + Playlist Drawer) -->
+        <main class="player-grid">
+            <!-- Left Side: Now Playing Player Card -->
+            <section class="card player-card" aria-label="Audio Player Controls">
+                <!-- Album Cover Art Container -->
+                <div class="cover-wrapper">
+                    <div class="album-art-box">
+                        <img src="images/cover1.svg" alt="Album Artwork" id="album-art" class="album-img">
+                        <!-- Animated Equalizer Overlay -->
+                        <div class="equalizer-overlay" id="equalizer-box">
+                            <span class="eq-bar bar-1"></span>
+                            <span class="eq-bar bar-2"></span>
+                            <span class="eq-bar bar-3"></span>
+                            <span class="eq-bar bar-4"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track Info Metadata Header -->
+                <div class="track-meta">
+                    <div class="track-text">
+                        <h2 class="track-title" id="track-title">Neon Horizon</h2>
+                        <p class="track-artist" id="track-artist">Aura & The Echoes</p>
+                        <span class="track-album-badge" id="track-album">Cyber Synthwave Vol. 1</span>
+                    </div>
+                    <button class="fav-btn" id="favorite-btn" aria-label="Toggle Favorite">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+
+                <!-- Progress Bar & Time Stamps -->
+                <div class="progress-section">
+                    <div class="time-stamps">
+                        <span id="current-time">0:00</span>
+                        <span id="total-duration">0:00</span>
+                    </div>
+                    <div class="seek-container">
+                        <input type="range" id="progress-bar" min="0" max="100" value="0" step="0.1" aria-label="Seek Audio Progress">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Main Player Control Buttons Deck -->
+                <div class="controls-deck">
+                    <button class="control-btn mode-btn" id="shuffle-btn" title="Toggle Shuffle (Off)" aria-label="Toggle Shuffle">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
+
+                    <button class="control-btn nav-btn" id="prev-btn" title="Previous Track" aria-label="Previous Track">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+
+                    <button class="control-btn play-btn" id="play-btn" title="Play / Pause" aria-label="Play or Pause">
+                        <i class="fa-solid fa-play play-icon"></i>
+                        <i class="fa-solid fa-pause pause-icon"></i>
+                    </button>
+
+                    <button class="control-btn nav-btn" id="next-btn" title="Next Track" aria-label="Next Track">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+
+                    <button class="control-btn mode-btn" id="repeat-btn" title="Toggle Repeat (Off)" aria-label="Toggle Repeat">
+                        <i class="fa-solid fa-repeat"></i>
+                    </button>
+                </div>
+
+                <!-- Volume & Mute Controls -->
+                <div class="volume-deck">
+                    <button class="volume-btn" id="mute-btn" aria-label="Mute or Unmute">
+                        <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+                    </button>
+                    <div class="volume-seek-container">
+                        <input type="range" id="volume-bar" min="0" max="1" value="0.8" step="0.01" aria-label="Volume Slider">
+                        <div class="volume-fill" id="volume-fill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Playlist Panel -->
+            <section class="card playlist-card" aria-label="Music Playlist">
+                <div class="playlist-header">
+                    <div class="playlist-title-box">
+                        <h3><i class="fa-solid fa-list-music"></i> Playlist</h3>
+                        <span class="track-count-badge" id="track-count">4 Tracks</span>
+                    </div>
+
+                    <div class="playlist-filter-tabs">
+                        <button class="filter-tab active" data-filter="all">All</button>
+                        <button class="filter-tab" data-filter="favorites">Favorites</button>
+                    </div>
+                </div>
+
+                <!-- Playlist Tracks Container -->
+                <ul class="playlist-tracks" id="playlist-tracks">
+                    <!-- Injected dynamically via JavaScript -->
+                </ul>
+            </section>
+        </main>
+
+        <!-- Application Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 MelodyStream. CodSoft Frontend Development Internship Task 4.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
