@@ -1,11 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodSoft Tasks</title>
-    <meta http-equiv="refresh" content="0; url=TASK-2-TODO-LIST/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodSoft Internship Tasks</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f4f6f8;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .tasks {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .task {
+            text-decoration: none;
+            color: white;
+            background: #2563eb;
+            padding: 20px 30px;
+            border-radius: 10px;
+            min-width: 250px;
+            transition: 0.2s;
+        }
+
+        .task:hover {
+            transform: translateY(-3px);
+            background: #1d4ed8;
+        }
+
+        .task h2 {
+            margin-bottom: 8px;
+        }
+
+        .task p {
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
-    <p>Loading To-Do List...</p>
+
+    <div class="container">
+
+        <h1>CodSoft Internship Tasks</h1>
+
+        <p class="subtitle">
+            Frontend Development Internship Projects
+        </p>
+
+        <div class="tasks">
+
+            <a class="task" href="TASK-1-PORTFOLIO/">
+                <h2>Task 1</h2>
+                <p>Personal Portfolio</p>
+            </a>
+
+            <a class="task" href="TASK-2-TODO-LIST/">
+                <h2>Task 2</h2>
+                <p>To-Do List Application</p>
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>
