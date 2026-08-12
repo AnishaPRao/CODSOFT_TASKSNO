@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PayPulse - Modern, Responsive Expense Tracker built for CodSoft Web Development Internship Task 3.">
+    <title>PayPulse | Expense Tracker & Financial Manager</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Ambient Glow Layer -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="app-container">
+        <!-- Application Header -->
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="logo-icon"><i class="fa-solid fa-wallet"></i></div>
+                <div>
+                    <h1 class="app-title">Pay<span class="highlight">Pulse</span></h1>
+                    <p class="app-subtitle">Track income, manage expenses & control your budget</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="date-badge" id="current-date-badge">
+                    <i class="fa-regular fa-calendar-days"></i> <span id="current-date">Today</span>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Financial Summary Cards -->
+        <section class="summary-section" aria-label="Financial Summary">
+            <!-- Total Income Card -->
+            <div class="summary-card card-income">
+                <div class="summary-header">
+                    <span class="summary-label">Total Income</span>
+                    <div class="summary-icon"><i class="fa-solid fa-arrow-down"></i></div>
+                </div>
+                <h2 class="summary-value" id="total-income">₹0.00</h2>
+                <div class="summary-footer">
+                    <i class="fa-solid fa-circle-up"></i> All earnings recorded
+                </div>
+            </div>
+
+            <!-- Total Expenses Card -->
+            <div class="summary-card card-expenses">
+                <div class="summary-header">
+                    <span class="summary-label">Total Expenses</span>
+                    <div class="summary-icon"><i class="fa-solid fa-arrow-up"></i></div>
+                </div>
+                <h2 class="summary-value" id="total-expenses">₹0.00</h2>
+                <div class="summary-footer">
+                    <i class="fa-solid fa-circle-down"></i> Total spending
+                </div>
+            </div>
+
+            <!-- Current Balance Card -->
+            <div class="summary-card card-balance">
+                <div class="summary-header">
+                    <span class="summary-label">Current Balance</span>
+                    <div class="summary-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                </div>
+                <h2 class="summary-value" id="current-balance">₹0.00</h2>
+                <div class="summary-footer" id="balance-status">
+                    <i class="fa-solid fa-check-circle"></i> Income - Expenses
+                </div>
+            </div>
+        </section>
+
+        <!-- Transaction Form Card (Add Income / Expense) -->
+        <section class="card form-card">
+            <div class="card-header">
+                <h2><i class="fa-solid fa-circle-plus"></i> Add New Transaction</h2>
+            </div>
+            
+            <form id="transaction-form" novalidate>
+                <!-- Transaction Type Toggle (Income vs Expense) -->
+                <div class="type-toggle-group">
+                    <label class="type-btn active" id="type-btn-expense">
+                        <input type="radio" name="transaction-type" value="expense" checked class="sr-only">
+                        <i class="fa-solid fa-minus-circle"></i> Expense
+                    </label>
+                    <label class="type-btn" id="type-btn-income">
+                        <input type="radio" name="transaction-type" value="income" class="sr-only">
+                        <i class="fa-solid fa-plus-circle"></i> Income
+                    </label>
+                </div>
+
+                <div class="form-grid">
+                    <!-- Title Input -->
+                    <div class="form-group full-width">
+                        <label for="tx-title">Description / Title <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-pen input-icon"></i>
+                            <input type="text" id="tx-title" placeholder="e.g. Grocery Shopping, Monthly Salary" required autocomplete="off">
+                        </div>
+                        <span class="error-msg" id="title-error">Transaction title cannot be empty!</span>
+                    </div>
+
+                    <!-- Amount Input -->
+                    <div class="form-group">
+                        <label for="tx-amount">Amount (₹) <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign input-icon"></i>
+                            <input type="number" id="tx-amount" step="0.01" min="0.01" placeholder="0.00" required>
+                        </div>
+                        <span class="error-msg" id="amount-error">Please enter a valid positive amount!</span>
+                    </div>
+
+                    <!-- Category Selector -->
+                    <div class="form-group">
+                        <label for="tx-category">Category <span class="required">*</span></label>
+                        <div class="select-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <select id="tx-category" required>
+                                <!-- Populated dynamically based on Income/Expense type -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Date Picker -->
+                    <div class="form-group">
+                        <label for="tx-date">Date <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-calendar input-icon"></i>
+                            <input type="date" id="tx-date" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary" id="add-tx-btn">
+                        <i class="fa-solid fa-plus"></i> <span>Add Transaction</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Controls Bar: Search & Filters -->
+        <section class="controls-section">
+            <!-- Search Bar -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search transactions by title..." aria-label="Search Transactions">
+                <button type="button" class="clear-search-btn" id="clear-search" aria-label="Clear Search">&times;</button>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-group">
+                <!-- Type Filter Tabs -->
+                <div class="status-tabs" role="tablist">
+                    <button class="tab-btn active" data-filter-type="all" role="tab">All Types</button>
+                    <button class="tab-btn" data-filter-type="income" role="tab">Income</button>
+                    <button class="tab-btn" data-filter-type="expense" role="tab">Expense</button>
+                </div>
+
+                <!-- Category Dropdown Filter -->
+                <div class="select-wrapper select-sm">
+                    <select id="filter-category" aria-label="Filter by Category">
+                        <option value="all">All Categories</option>
+                        <!-- Populated via JavaScript -->
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transaction History Section -->
+        <section class="history-section">
+            <div class="list-header">
+                <h3 class="list-title" id="list-heading">Transaction History</h3>
+                <button class="btn btn-danger btn-sm" id="clear-all-btn">
+                    <i class="fa-solid fa-trash-can"></i> Clear All History
+                </button>
+            </div>
+
+            <!-- Dynamic Transaction List -->
+            <ul class="transaction-list" id="transaction-list">
+                <!-- Injected via JavaScript -->
+            </ul>
+
+            <!-- Empty State Container -->
+            <div class="empty-state hidden" id="empty-state">
+                <div class="empty-icon"><i class="fa-solid fa-receipt"></i></div>
+                <h3 id="empty-title">No transactions found</h3>
+                <p id="empty-description">Add a new income or expense transaction above to get started!</p>
+            </div>
+        </section>
+
+        <!-- Application Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 PayPulse. CodSoft Web Development Internship Task 3.</p>
+        </footer>
+    </div>
+
+    <!-- Edit Transaction Modal Dialog -->
+    <div class="modal-backdrop" id="edit-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-pen-to-square"></i> Edit Transaction</h3>
+                <button type="button" class="modal-close" id="edit-modal-close" aria-label="Close Modal">&times;</button>
+            </div>
+            <form id="edit-tx-form" novalidate>
+                <input type="hidden" id="edit-tx-id">
+                <div class="modal-body">
+                    <!-- Edit Type Radio Toggle -->
+                    <div class="type-toggle-group">
+                        <label class="type-btn" id="edit-type-btn-expense">
+                            <input type="radio" name="edit-tx-type" value="expense" class="sr-only">
+                            <i class="fa-solid fa-minus-circle"></i> Expense
+                        </label>
+                        <label class="type-btn" id="edit-type-btn-income">
+                            <input type="radio" name="edit-tx-type" value="income" class="sr-only">
+                            <i class="fa-solid fa-plus-circle"></i> Income
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-title">Description / Title <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-pen input-icon"></i>
+                            <input type="text" id="edit-title" required autocomplete="off">
+                        </div>
+                        <span class="error-msg" id="edit-title-error">Title cannot be empty!</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-amount">Amount (₹) <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign input-icon"></i>
+                            <input type="number" id="edit-amount" step="0.01" min="0.01" required>
+                        </div>
+                        <span class="error-msg" id="edit-amount-error">Please enter a valid positive amount!</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-category">Category <span class="required">*</span></label>
+                        <div class="select-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <select id="edit-category" required></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-date">Date <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-calendar input-icon"></i>
+                            <input type="date" id="edit-date" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="edit-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirm Delete Modal Dialog -->
+    <div class="modal-backdrop" id="delete-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-sm">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-triangle-exclamation text-danger"></i> Delete Transaction</h3>
+                <button type="button" class="modal-close" id="delete-modal-close" aria-label="Close Modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to permanently delete this transaction?</p>
+                <p class="text-muted text-sm" id="delete-tx-info"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" id="delete-cancel-btn">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirm-delete-btn">
+                    <i class="fa-solid fa-trash-can"></i> Delete
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
