@@ -3,104 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CodSoft Internship Tasks</title>
+    <title>CodSoft Tasks</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #f4f6f8;
-        }
-
-        .container {
+            background: #0f172a;
+            color: white;
             text-align: center;
-            background: white;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            max-width: 700px;
-            width: 90%;
+            padding: 60px 20px;
         }
 
         h1 {
-            color: #222;
+            color: #60a5fa;
             margin-bottom: 10px;
         }
 
-        .subtitle {
-            color: #666;
-            margin-bottom: 35px;
+        p {
+            color: #cbd5e1;
+            margin-bottom: 40px;
         }
 
         .tasks {
             display: flex;
-            gap: 20px;
             justify-content: center;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
         .task {
-            text-decoration: none;
-            color: white;
-            background: #2563eb;
-            padding: 20px 30px;
-            border-radius: 10px;
-            min-width: 250px;
-            transition: 0.2s;
-        }
-
-        .task:hover {
-            transform: translateY(-3px);
-            background: #1d4ed8;
+            background: #1e293b;
+            padding: 30px;
+            width: 250px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
         .task h2 {
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
-        .task p {
-            font-size: 14px;
+        .task a {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .task a:hover {
+            background: #2563eb;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+    <h1>CODSOFT Internship Tasks</h1>
+    <p>Select a task to view the project</p>
 
-        <h1>CodSoft Internship Tasks</h1>
+    <div class="tasks">
 
-        <p class="subtitle">
-            Frontend Development Internship Projects
-        </p>
+        <div class="task">
+            <h2>Task 1</h2>
+            <p>Personal Portfolio</p>
+            <a href="./TASK-1-PORTFOLIO/">View Task</a>
+        </div>
 
-        <div class="tasks">
+        <div class="task">
+            <h2>Task 2</h2>
+            <p>To-Do List</p>
+            <a href="./TASK-2-TODO-LIST/">View Task</a>
+        </div>
 
-            <a class="task" href="TASK-1-PORTFOLIO/">
-                <h2>Task 1</h2>
-                <p>Personal Portfolio</p>
-            </a>
-
-            <a class="task" href="TASK-2-TODO-LIST/">
-                <h2>Task 2</h2>
-                <p>To-Do List Application</p>
-            </a>
-
-            <a class="task" href="TASK-3-EXPENSE-TRACKER/">
-                <h2>Task 3</h2>
-                <p>Expense Tracker Application</p>
-            </a>
-
+        <div class="task">
+            <h2>Task 3</h2>
+            <p>Expense Tracker</p>
+            <a href="./TASK-3-EXPENSE-TRACKER/">View Task</a>
         </div>
 
     </div>
